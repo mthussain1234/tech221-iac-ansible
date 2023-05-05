@@ -68,3 +68,67 @@ giving them a seamless and automated deployment process -> reduced deployment ti
  - Playbooks can include conditionals, loops, and variables, making them a powerful way to automate complex workflows.
 
 
+# Ansible Controller
+
+1. Create a `VagrantFile` in your VScode in the repository you created for IACs.
+2. In that, if you are in Windows copy and paste this code below to create our 3 VMs `app` `db` `web`
+```
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+
+# MULTI SERVER/VMs environment
+Vagrant.configure("2") do |config|
+    # creating our Ansible controller
+    config.vm.define "controller" do |controller|
+      controller.vm.box = "bento/ubuntu-18.04"
+      controller.vm.hostname = 'controller'
+      controller.vm.network :private_network, ip: "192.168.33.12"
+      # config.hostsupdater.aliases = ["development.controller"]
+    end
+  
+    # creating first VM called web
+    config.vm.define "web" do |web|
+      web.vm.box = "bento/ubuntu-18.04"
+      # downloading ubuntu 18.04 image
+      web.vm.hostname = 'web'
+      # assigning host name to the VM
+      web.vm.network :private_network, ip: "192.168.33.10"
+      # assigning private IP
+      #config.hostsupdater.aliases = ["development.web"]
+      # creating a link called development.web so we can access web page with this link instead of an IP
+    end
+  
+    # creating second VM called db
+    config.vm.define "db" do |db|
+      db.vm.box = "bento/ubuntu-18.04"
+      db.vm.hostname = 'db'
+      db.vm.network :private_network, ip: "192.168.33.11"
+      #config.hostsupdater.aliases = ["development.db"]
+    end
+  end
+  ```
+3. After this, in Git Bash, `cd` to the folder with the VagrantFile, you can remove any previous VagrantFiles in other locations
+4. We now `vagrant up` to launch our 3 VMs
+5. `vagrant ssh app` to ssh into our app and perform ``` sudo apt-get update
+sudo apt-get upgrade -y```, to install the required dependencies needed
+6. Repeat step 5 for `controller` and `db`, installing the required packages
+7. Once done, we now only need to stay in the `controller` VM
+8. In the `controller` VM, run these commands in order:
+```
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt update -y
+sudo apt install ansible
+
+ssh vagrant@192.168.33.10 # password is vagrant
+```
+9. With the final command shown above, it will `ssh` us into the `web` VM, using its IP address.
+
