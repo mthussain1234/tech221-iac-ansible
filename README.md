@@ -62,7 +62,7 @@ giving them a seamless and automated deployment process -> reduced deployment ti
  - Infrastructuer automation, app deployment, config management
 
 - YAML
- - YAML (short for "YAML Ain't Markup Language") is a human-readable format. 
+ - YAML (short for "YAML Ain't Markup Language") is language in human readable format 
  - used in Ansible playbooks to define infrastructure resources and configurations in a structured way.
  - Playbokos deifne tasks to be executed on nodes
  - Playbooks can include conditionals, loops, and variables, making them a powerful way to automate complex workflows.
