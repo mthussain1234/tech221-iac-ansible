@@ -176,6 +176,11 @@ sudo  ansible all -m ping
 ```
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/3c13ce8d-dc5a-400b-99a7-53ffa09c4863)
 
+Use case of ansible with our nodes, help us find timezones of servers, can help organise updates, upgrades .etc.
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/7cb75f98-22de-4895-81fb-db7a7d7f6a2b)
+
+
 
 
 
