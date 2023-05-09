@@ -131,4 +131,41 @@ sudo apt install ansible
 ssh vagrant@192.168.33.10 # password is vagrant
 ```
 9. With the final command shown above, it will `ssh` us into the `web` VM, using its IP address.
+10. Do `sudo apt install tree` then `tree` to use command, more presentable than using `ls`
+
+
+
+
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/3c686db8-1097-4d4d-bdb6-78b858ca592d)
+
+```sudo nano hosts```, then edit file as shown below
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/755942ad-f39a-4857-ae9b-847c39114499)
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/42423a6c-80ef-42ec-a136-d850e01eb09a)
+
+sudo nano hosts again
+
+```
+192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
+```
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/ad8bae27-bd75-4721-9941-7491bfbf8179)
+
+Saving and exiting run the command 
+```
+sudo ansible web -m ping
+``` 
+again and it should show a new outcome after changing our hosts file.
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/c50cd552-3a31-43eb-9e64-0379ae332953)
+
+
+
+
+
+
+
+
 
