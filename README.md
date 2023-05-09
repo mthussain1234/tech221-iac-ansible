@@ -134,18 +134,17 @@ ssh vagrant@192.168.33.10 # password is vagrant
 10. Do `sudo apt install tree` then `tree` to use command, more presentable than using `ls`
 
 
-
-
+# Ansible controller continued
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/3c686db8-1097-4d4d-bdb6-78b858ca592d)
 
-```sudo nano hosts```, then edit file as shown below
+1. ```sudo nano hosts```, then edit file as shown below
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/755942ad-f39a-4857-ae9b-847c39114499)
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/42423a6c-80ef-42ec-a136-d850e01eb09a)
 
-sudo nano hosts again
+2. sudo nano hosts again
 
 ```
 192.168.33.10 ansible_connection=ssh ansible_ssh_user=vagrant ansible_ssh_pass=vagrant
@@ -153,14 +152,14 @@ sudo nano hosts again
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/ad8bae27-bd75-4721-9941-7491bfbf8179)
 
-Saving and exiting run the command 
+3. Saving and exiting run the command 
 ```
 sudo ansible web -m ping
 ``` 
-again and it should show a new outcome after changing our hosts file.
+4. Again and it should show a new outcome after changing our hosts file.
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/c50cd552-3a31-43eb-9e64-0379ae332953)
-
+5. 
 ```
 sudo nano ansible.cfg
 
@@ -170,26 +169,35 @@ host_key_checking = False
 ```
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/196d25ac-8161-48a0-892b-c412ae05709a)
 
-Running 
+6. use command to test if it `pings` 
 ```
 sudo  ansible all -m ping
 ```
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/3c13ce8d-dc5a-400b-99a7-53ffa09c4863)
 
-Use case of ansible with our nodes, help us find timezones of servers, can help organise updates, upgrades .etc.
+7. Use case of ansible with our nodes, help us find timezones of servers, can help organise updates, upgrades .etc.
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/7cb75f98-22de-4895-81fb-db7a7d7f6a2b)
 
-Another use case, to identify what os they are working with `sudo ansible all -a "uname"`
+8. Another use case, to identify what os they are working with `sudo ansible all -a "uname"`
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/6dd91b2c-529a-41d9-912c-f0a84936ea39)
 
+9. To Copy folders over from `controller` to our `web` we use commmand 
 
+```
+sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant/"
+```
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/73d88abf-1cc8-4288-bc0c-129d6572ad04)
 
+10. To check if this has carried over, we run this command into our controller 
 
+```
+/etc/ansible$ sudo ansible web -a "ls"
+```
 
+11. We can see the outcome below
 
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/f71f7297-68f0-47b7-8c1a-5781ff170bb3)
 
-
-
-
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/6bb29a7a-3aa3-4d8c-8124-466928754df4)
