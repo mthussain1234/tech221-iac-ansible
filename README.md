@@ -205,3 +205,38 @@ sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant/"
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/f71f7297-68f0-47b7-8c1a-5781ff170bb3)
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/6bb29a7a-3aa3-4d8c-8124-466928754df4)
+
+
+# Ansible Playbooks YAML
+
+1. `sudo nano install-nginx-playbook.yml` to create our playbook to install nginxt our web server
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/2d503dda-fbe7-4b65-b8fa-cc2e9d91e39d)
+
+2.
+```
+
+# creating a playbook to install nginx in webserver
+# YAML file starts with ---
+
+---
+# where would you like to install nginx
+- hosts: web
+
+
+# Would you like to see logs
+  gather_facts: yes
+
+# do we need admin access - sudo
+  become: true
+
+# Add the insutructions - commands
+  tasks:
+  - name: Install nginx in web-server
+
+    apt: pkg=nginx state=present
+
+# ensure status is running/active
+
+```
+
