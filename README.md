@@ -213,7 +213,7 @@ sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant/"
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/2d503dda-fbe7-4b65-b8fa-cc2e9d91e39d)
 
-2.
+2. Enter this into the playbook
 ```
 
 # creating a playbook to install nginx in webserver
@@ -239,4 +239,11 @@ sudo ansible web -m copy -a "src=/etc/ansible/testing.txt dest=/home/vagrant/"
 # ensure status is running/active
 
 ```
+
+3. Outcome should be like this after running `sudo ansible web -a "systemctl status nginx"`
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/5452d7ae-3aba-4de3-b760-088752cb65d7)
+
+4. 
+
 
