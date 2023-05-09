@@ -161,6 +161,20 @@ again and it should show a new outcome after changing our hosts file.
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/c50cd552-3a31-43eb-9e64-0379ae332953)
 
+```
+sudo nano ansible.cfg
+
+# add under defaults
+
+host_key_checking = False
+```
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/196d25ac-8161-48a0-892b-c412ae05709a)
+
+Running 
+```
+sudo  ansible all -m ping
+```
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/3c13ce8d-dc5a-400b-99a7-53ffa09c4863)
 
 
 
