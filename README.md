@@ -68,6 +68,10 @@ giving them a seamless and automated deployment process -> reduced deployment ti
  - Playbooks can include conditionals, loops, and variables, making them a powerful way to automate complex workflows.
 
 
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/39c3bcb0-ece8-4f2b-8592-2b55ec4db66e)
+
+
+
 # Ansible Controller
 
 1. Create a `VagrantFile` in your VScode in the repository you created for IACs.
