@@ -180,6 +180,11 @@ Use case of ansible with our nodes, help us find timezones of servers, can help 
 
 ![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/7cb75f98-22de-4895-81fb-db7a7d7f6a2b)
 
+Another use case, to identify what os they are working with `sudo ansible all -a "uname"`
+
+![image](https://github.com/mthussain1234/tech221-iac-ansible/assets/129314018/6dd91b2c-529a-41d9-912c-f0a84936ea39)
+
+
 
 
 
